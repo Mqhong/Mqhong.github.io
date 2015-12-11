@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>2015/12/11 | 梦梦的咸鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="孟庆洪">
+  
+  
+    <meta name="description" content="2015年12月11日星期五  block 记录">
+  
+  <meta name="description" content="2015年12月11日星期五  block 记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2015/12/11">
+<meta property="og:url" content="http://mqhong.github.io/mqh/2015/12/11/2015-12-11/index.html">
+<meta property="og:site_name" content="梦梦的咸鱼">
+<meta property="og:description" content="2015年12月11日星期五  block 记录">
+<meta property="og:image" content="http://7xp12w.com1.z0.glb.clouddn.com/密码.jpg">
+<meta property="og:updated_time" content="2015-12-11T01:38:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2015/12/11">
+<meta name="twitter:description" content="2015年12月11日星期五  block 记录">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/mqh/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/mqh/">梦梦的咸鱼</a></h1>
+    <p><a href="/mqh/">有梦想</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/mqh/2015/12/11/2015-12-11/">
+  <time datetime="2015-12-11T01:06:12.000Z">
+    2015-12-11
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">2015/12/11</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h3 id="2015_u5E7412_u670811_u65E5_u661F_u671F_u4E94_block__u8BB0_u5F55"><a href="#2015_u5E7412_u670811_u65E5_u661F_u671F_u4E94_block__u8BB0_u5F55" class="headerlink" title="2015年12月11日星期五  block 记录"></a>2015年12月11日星期五  block 记录</h3><p><img src="http://7xp12w.com1.z0.glb.clouddn.com/密码.jpg" class="img-topic"><br><a id="more"></a></p>
+<ul>
+<li><h3 id="block__u7684_u6027_u8D28"><a href="#block__u7684_u6027_u8D28" class="headerlink" title="block 的性质"></a>block 的性质</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test5</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">void</span> (^block)() = ^&#123;</span><br><span class="line">        <span class="comment">// block内部能够一直引用全局变量</span></span><br><span class="line">        NSLog(@<span class="string">"----num=%d"</span>, num);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    num = <span class="number">20</span>;</span><br><span class="line">    </span><br><span class="line">    block();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> age = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">void</span> (^block)() = ^&#123;</span><br><span class="line">        <span class="comment">// block内部能够一直引用被static修饰的变量</span></span><br><span class="line">        NSLog(@<span class="string">"----age=%d"</span>, age);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    age = <span class="number">20</span>;</span><br><span class="line">    </span><br><span class="line">    block();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    __block <span class="keyword">int</span> age = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">void</span> (^block)() = ^&#123;</span><br><span class="line">        <span class="comment">// block内部能够一直引用被__block修饰的变量</span></span><br><span class="line">        </span><br><span class="line">        NSLog(@<span class="string">"----age=%d"</span>, age);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    age = <span class="number">20</span>;</span><br><span class="line">    </span><br><span class="line">    block();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">void</span> (^block)() = ^&#123;</span><br><span class="line">        <span class="comment">// 普通的局部变量，block内部只会引用它初始的值（block定义那一刻），不能跟踪它的改变</span></span><br><span class="line">        NSLog(@<span class="string">"----age=%d"</span>, age);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    age = <span class="number">20</span>;</span><br><span class="line">    </span><br><span class="line">    block();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">void</span> (^block)() = ^&#123;</span><br><span class="line">        <span class="comment">// ----age=10</span></span><br><span class="line">        NSLog(@<span class="string">"----age=%d"</span>, age);</span><br><span class="line">    &#125;;</span><br><span class="line">    block();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="block_u4E0Edelegate_u7684_u533A_u522B"><a href="#block_u4E0Edelegate_u7684_u533A_u522B" class="headerlink" title="block与delegate的区别"></a>block与delegate的区别</h3><p>  说到底，block是函数(转码成c++后，可以看的出为函数–如果为局部变量，则直接设定为常量，值取在顺序执行到block的时候最后赋值的那次。如果为__block，static,全局变量 则设定为值的指针，在调用的时候，根据指针去内存中去查找当时的值)，delegate是一种设计模式。</p>
+</li>
+<li><h3 id="block_u80FD_u53D6_u4EE3delegate_u4E48_uFF1F"><a href="#block_u80FD_u53D6_u4EE3delegate_u4E48_uFF1F" class="headerlink" title="block能取代delegate么？"></a>block能取代delegate么？</h3><p>  很显然，苹果是极力推介使用block的，最近的几个IOS版本，很多函数都由之前的代理，修改成block来实现了。但是，delegate是公用的设计模式，是其他的语言也承认的。在某些情况下，是block不能代替的。当然，在使用的时候，如果涉及到复杂的计算，推介使用delegate，如果只是简单的传值，或者简单的回调推介使用block。（废话了这么多，其实可以总结为，两者暂时是不存在谁能取代谁的，因为各有千秋，我们使用他们是为了提高生产力，看个人的选择）</p>
+</li>
+<li><h3 id="block__u53D6_u4EE3_delegate__u7684_u7B80_u5355_u65B9_u5F0F"><a href="#block__u53D6_u4EE3_delegate__u7684_u7B80_u5355_u65B9_u5F0F" class="headerlink" title="block 取代 delegate 的简单方式"></a>block 取代 delegate 的简单方式</h3><p>  定义ViewController1，ViewController2.<br>  在VC2中的头文件中定义block </p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@property</span>(nonatomic,copy) <span class="keyword">void</span>(^mmblock)(NSString *text);</span><br></pre></td></tr></table></figure>
+<p>  在以前实现代理的方法中 实现block方法</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	-(<span class="keyword">void</span>)btnClick:(id)sender&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">0</span>;<span class="comment">//(申请了之后，就一直存在，就算VC2被销毁了，但是i还是存在内存中，下次进入VC2的时候，i就不会进行初始化了，直接拿之前的值。)</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (self.mmblock) &#123;</span><br><span class="line"></span><br><span class="line">        self.mmblock([NSString stringWithFormat:@<span class="string">"ddd%d"</span>,i]);</span><br><span class="line">        <span class="comment">//在返回的地方释放掉block</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  在VC1中导入VC2头文件，</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">VC2 *vc2 =[[VC2 alloc] init];</span><br><span class="line"></span><br><span class="line">   [vc2 setMmblock:^(NSString *text) &#123;<span class="comment">//在push到下个控制器（VC2）的时候调用vc2的block</span></span><br><span class="line">       </span><br><span class="line">       NSLog(@<span class="string">"这里传值过来了"</span>);</span><br><span class="line">       [btn setTitle:text forState:UIControlStateNormal];</span><br><span class="line">       </span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br><span class="line">   [self.navigationController pushViewController:vc2 animated:YES];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如此便完成了block简单的替代delegate的方法，我觉得一定还有其他方法，学到了以后再来补充。</p>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/mqh/tags/琐事/">琐事</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2015 <a href="/mqh/">孟庆洪</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.useso.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/mqh/js/scale.fix.js"></script>
+<script src="/mqh/js/jquery.imagesloaded.min.js"></script>
+<script src="/mqh/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/mqh/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/mqh/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
