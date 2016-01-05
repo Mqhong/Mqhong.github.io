@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>swift中的代理和闭包浅谈 | 梦梦的咸鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="孟庆洪">
+  
+  
+    <meta name="description" content="2016年01月05日星期二">
+  
+  <meta name="description" content="2016年01月05日星期二">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift中的代理和闭包浅谈">
+<meta property="og:url" content="http://mqhong.github.io/2016/01/05/2016-01-05/index.html">
+<meta property="og:site_name" content="梦梦的咸鱼">
+<meta property="og:description" content="2016年01月05日星期二">
+<meta property="og:image" content="http://7xp12w.com1.z0.glb.clouddn.com/%E4%BB%A3%E7%90%86%E9%97%AD%E5%8C%85.jpg">
+<meta property="og:updated_time" content="2016-01-05T04:41:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift中的代理和闭包浅谈">
+<meta name="twitter:description" content="2016年01月05日星期二">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">梦梦的咸鱼</a></h1>
+    <p><a href="/">有梦想--孟庆洪</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">目录</a></li>
+      
+        <li><a href="/mystory">简历</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2016/01/05/2016-01-05/">
+  <time datetime="2016-01-05T02:51:45.000Z">
+    2016-01-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">swift中的代理和闭包浅谈</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><img src="http://7xp12w.com1.z0.glb.clouddn.com/%E4%BB%A3%E7%90%86%E9%97%AD%E5%8C%85.jpg" class="img-topic"></p>
+<h3 id="2016_u5E7401_u670805_u65E5_u661F_u671F_u4E8C"><a href="#2016_u5E7401_u670805_u65E5_u661F_u671F_u4E8C" class="headerlink" title="2016年01月05日星期二"></a>2016年01月05日星期二</h3><a id="more"></a>
+<h4 id="u771F_u662F_u641E_u4E86_u4E2A_u5F00_u95E8_u7EA2_uFF0C_u5143_u65E6_u5C31_u611F_u5192_u4E86_u3002_u6BD4_u4E50_u8D2D_7E_u3002_u867D_u75C5_u75DB_u52A0_u8EAB_uFF0C_u6211_u4EA6_u4E0D_u5C48_u4E0D_u60E7_u3002_u545C_u545C_u545C_7E_7E_7E"><a href="#u771F_u662F_u641E_u4E86_u4E2A_u5F00_u95E8_u7EA2_uFF0C_u5143_u65E6_u5C31_u611F_u5192_u4E86_u3002_u6BD4_u4E50_u8D2D_7E_u3002_u867D_u75C5_u75DB_u52A0_u8EAB_uFF0C_u6211_u4EA6_u4E0D_u5C48_u4E0D_u60E7_u3002_u545C_u545C_u545C_7E_7E_7E" class="headerlink" title="真是搞了个开门红，元旦就感冒了。比乐购~。虽病痛加身，我亦不屈不惧。呜呜呜~~~"></a>真是搞了个开门红，元旦就感冒了。比乐购~。虽病痛加身，我亦不屈不惧。呜呜呜~~~</h4><p>最近抽空看了看swift，觉得这个语言真的是优雅，给我带来了比较多的惊喜，但，我依然持保留态度，因为，潜意识中，觉得，我还没有学习的ruby应该会给我带来更多的惊喜。</p>
+<ul>
+<li><h4 id="u4ECA_u5929_u4E3B_u8981_u8BF4_u4E24_u4E2A_u4E8B_uFF1A"><a href="#u4ECA_u5929_u4E3B_u8981_u8BF4_u4E24_u4E2A_u4E8B_uFF1A" class="headerlink" title="今天主要说两个事："></a>今天主要说两个事：</h4><ul>
+<li>代理</li>
+<li>闭包</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h3 id="u4EE3_u7406"><a href="#u4EE3_u7406" class="headerlink" title="代理"></a>代理</h3><h4 id="swift_u7684_u4EE3_u7406_u548COC_u7684_u4EE3_u7406_u57FA_u672C_u4E00_u81F4_28_u6211_u73B0_u5728_u662F_u8FD9_u4E48_u8BA4_u4E3A_u7684_29_uFF0C_u4F46_u662FOC_u4E2D_u6709_u7EAF_u6B63_u7684_u53EF_u9009_u4EE3_u7406_u65B9_u6CD5_uFF0C_u800Cswift_u5374_u6CA1_u6709_uFF0C_u8981_u8FBE_u5230_u540C_u6837_u7684_u6548_u679C_uFF0C_u5F97_u8DDFoc_u53BB_u6742_u4EA4"><a href="#swift_u7684_u4EE3_u7406_u548COC_u7684_u4EE3_u7406_u57FA_u672C_u4E00_u81F4_28_u6211_u73B0_u5728_u662F_u8FD9_u4E48_u8BA4_u4E3A_u7684_29_uFF0C_u4F46_u662FOC_u4E2D_u6709_u7EAF_u6B63_u7684_u53EF_u9009_u4EE3_u7406_u65B9_u6CD5_uFF0C_u800Cswift_u5374_u6CA1_u6709_uFF0C_u8981_u8FBE_u5230_u540C_u6837_u7684_u6548_u679C_uFF0C_u5F97_u8DDFoc_u53BB_u6742_u4EA4" class="headerlink" title="swift的代理和OC的代理基本一致(我现在是这么认为的)，但是OC中有纯正的可选代理方法，而swift却没有，要达到同样的效果，得跟oc去杂交"></a>swift的代理和OC的代理基本一致(我现在是这么认为的)，但是OC中有纯正的可选代理方法，而swift却没有，要达到同样的效果，得跟oc去杂交</h4><ul>
+<li><h4 id="1__u9996_u5148_uFF0C_u5B9A_u4E49_u4E00_u4EFD_u534F_u8BAE"><a href="#1__u9996_u5148_uFF0C_u5B9A_u4E49_u4E00_u4EFD_u534F_u8BAE" class="headerlink" title="1 首先，定义一份协议"></a>1 首先，定义一份协议</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">protocol</span> <span class="title">ViewControllerProrocol</span></span>&#123;</span><br><span class="line">    <span class="comment">//1.代理方法,将字符串传递给调用者</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">fuckthedelegate</span><span class="params">(str:String)</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="2__u5B9A_u4E49_u4E00_u4E2A_u4EE3_u7406_u5C5E_u6027"><a href="#2__u5B9A_u4E49_u4E00_u4E2A_u4EE3_u7406_u5C5E_u6027" class="headerlink" title="2 定义一个代理属性"></a>2 定义一个代理属性</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2.声明代理属性</span></span><br><span class="line">  <span class="keyword">var</span> <span class="keyword">delegate</span> : ViewControllerProrocol?</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="3__u5224_u65AD_u4EE3_u7406_u662F_u5426_u5B9E_u73B0_u4EE3_u7406_u65B9_u6CD5_uFF0C_u5982_u679C_u5B9E_u73B0_u5C06_u670D_u52A1_u5668_u8FD4_u56DE_u7684_u5B57_u5178_u8FDB_u884C_u53CD_u5E8F_u5217_u5316_u540E_u4F20_u9012_u7ED9_u8C03_u7528_u8005"><a href="#3__u5224_u65AD_u4EE3_u7406_u662F_u5426_u5B9E_u73B0_u4EE3_u7406_u65B9_u6CD5_uFF0C_u5982_u679C_u5B9E_u73B0_u5C06_u670D_u52A1_u5668_u8FD4_u56DE_u7684_u5B57_u5178_u8FDB_u884C_u53CD_u5E8F_u5217_u5316_u540E_u4F20_u9012_u7ED9_u8C03_u7528_u8005" class="headerlink" title="3 判断代理是否实现代理方法，如果实现将服务器返回的字典进行反序列化后传递给调用者"></a>3 判断代理是否实现代理方法，如果实现将服务器返回的字典进行反序列化后传递给调用者</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//3.传递给调用者</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">btnClick</span><span class="params">(sender:AnyObject)</span></span>&#123;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">self</span>.delegate?.fuckthedelegate(<span class="string">"竟然成功了，我跟谁说理去？"</span>)</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="4__u8C03_u7528_u8005_u8FDB_u884C_u7684_u64CD_u4F5C"><a href="#4__u8C03_u7528_u8005_u8FDB_u884C_u7684_u64CD_u4F5C" class="headerlink" title="4 调用者进行的操作"></a>4 调用者进行的操作</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//4.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span>, <span class="title">ViewControllerProrocol</span> </span>&#123;</span><br><span class="line">	<span class="comment">//other code</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//MARK:-delegate代理</span></span><br><span class="line">  <span class="func"><span class="keyword">func</span> <span class="title">fuckthedelegate</span><span class="params">(str: String)</span></span> &#123;</span><br><span class="line">      <span class="built_in">print</span>(str)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><h3 id="swift_u53EF_u9009_u4EE3_u7406"><a href="#swift_u53EF_u9009_u4EE3_u7406" class="headerlink" title="swift可选代理"></a>swift可选代理</h3><ul>
+<li><h4 id="u5982_u4E0A_uFF0Cswift_u4EE3_u7406_u7684_u58F0_u660E_u548C_u4F7F_u7528_uFF0C_u8FD8_u662F_u611F_u89C9_u6BD4oc_u8981_u7B80_u6D01_u5F88_u591A_2C_u4F46_u662F_uFF0Cswift_u73B0_u5728_u662F_u6CA1_u6709_u53EF_u9009_u4EE3_u7406_u7684_uFF0C_u4E5F_u5C31_u662F_u8BF4_uFF0C_u4F60_u4EE3_u7406_u4E2D_uFF0C_u5B9A_u4E49_u7684_u65B9_u6CD5_uFF0C_u6BCF_u4E00_u4E2A_u90FD_u8981_u5728_u8C03_u7528_u8005_u4E2D_u8FDB_u884C_u5B9E_u73B0_uFF0C_u4E0D_u7136_u65E0_u6CD5_u7F16_u8BD1_uFF08_u5929_u5566_u64B8_uFF0C_u5F31_u6C34_u4E09_u5343_u6211_u53EA_u53D6_u4E00_u74E2_7E_7E_7E_uFF09_2C_u600E_u4E48_u529E_u5583_uFF1F__u548Coc_u53BB_u6742_u4EA4_uFF0C_u4E5F_u6709_u4E00_u8BF4_u662Foc_u5269_u4E0B_u7684_u6E23_B7_B7_B7_u4E0D_u8FC7_uFF0C_u6211_u89C9_u5F97_uFF0C_u6709_u89E3_u51B3_u65B9_u6CD5_u5C31_u633A_u597D_u3002"><a href="#u5982_u4E0A_uFF0Cswift_u4EE3_u7406_u7684_u58F0_u660E_u548C_u4F7F_u7528_uFF0C_u8FD8_u662F_u611F_u89C9_u6BD4oc_u8981_u7B80_u6D01_u5F88_u591A_2C_u4F46_u662F_uFF0Cswift_u73B0_u5728_u662F_u6CA1_u6709_u53EF_u9009_u4EE3_u7406_u7684_uFF0C_u4E5F_u5C31_u662F_u8BF4_uFF0C_u4F60_u4EE3_u7406_u4E2D_uFF0C_u5B9A_u4E49_u7684_u65B9_u6CD5_uFF0C_u6BCF_u4E00_u4E2A_u90FD_u8981_u5728_u8C03_u7528_u8005_u4E2D_u8FDB_u884C_u5B9E_u73B0_uFF0C_u4E0D_u7136_u65E0_u6CD5_u7F16_u8BD1_uFF08_u5929_u5566_u64B8_uFF0C_u5F31_u6C34_u4E09_u5343_u6211_u53EA_u53D6_u4E00_u74E2_7E_7E_7E_uFF09_2C_u600E_u4E48_u529E_u5583_uFF1F__u548Coc_u53BB_u6742_u4EA4_uFF0C_u4E5F_u6709_u4E00_u8BF4_u662Foc_u5269_u4E0B_u7684_u6E23_B7_B7_B7_u4E0D_u8FC7_uFF0C_u6211_u89C9_u5F97_uFF0C_u6709_u89E3_u51B3_u65B9_u6CD5_u5C31_u633A_u597D_u3002" class="headerlink" title="如上，swift代理的声明和使用，还是感觉比oc要简洁很多,但是，swift现在是没有可选代理的，也就是说，你代理中，定义的方法，每一个都要在调用者中进行实现，不然无法编译（天啦撸，弱水三千我只取一瓢~~~）,怎么办喃？ 和oc去杂交，也有一说是oc剩下的渣···不过，我觉得，有解决方法就挺好。"></a>如上，swift代理的声明和使用，还是感觉比oc要简洁很多,但是，swift现在是没有可选代理的，也就是说，你代理中，定义的方法，每一个都要在调用者中进行实现，不然无法编译（天啦撸，弱水三千我只取一瓢~~~）,怎么办喃？ 和oc去杂交，也有一说是oc剩下的渣···不过，我觉得，有解决方法就挺好。</h4></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//声明一份协议</span></span><br><span class="line"> <span class="preprocessor">@objc</span> <span class="class"><span class="keyword">protocol</span> <span class="title">ViewControllerProrocol</span></span>&#123;</span><br><span class="line">    <span class="comment">//声明代理方法</span></span><br><span class="line">     <span class="keyword">optional</span> <span class="func"><span class="keyword">func</span> <span class="title">fuckthedelegate</span><span class="params">(str:String)</span></span><span class="comment">//可选实现</span></span><br><span class="line">     <span class="func"><span class="keyword">func</span> <span class="title">fuckthedelegate</span><span class="params">()</span></span><span class="comment">//必须实现</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController1</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">	<span class="comment">//other code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="u6CE8_u610F_u4E0A_u9762_u8981_u52A0_u4E0A@objc__u548C_optional_u8FD9_u4E24_u4E2A_u5173_u952E_u5B57__u5728_u8C03_u7528_u7684_u65F6_u5019_u8981_u52A0_u4E2A_u53EF_u9009_u94FE_28_3F_29"><a href="#u6CE8_u610F_u4E0A_u9762_u8981_u52A0_u4E0A@objc__u548C_optional_u8FD9_u4E24_u4E2A_u5173_u952E_u5B57__u5728_u8C03_u7528_u7684_u65F6_u5019_u8981_u52A0_u4E2A_u53EF_u9009_u94FE_28_3F_29" class="headerlink" title="注意上面要加上@objc 和 optional这两个关键字 在调用的时候要加个可选链(?)"></a>注意上面要加上@objc 和 optional这两个关键字 在调用的时候要加个可选链(?)</h4></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//3.传递给调用者</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">btnClick</span><span class="params">(sender:AnyObject)</span></span>&#123;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">self</span>.delegate?.fuckthedelegate？(<span class="string">"竟然成功了，我跟谁说理去？"</span>)</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><h4 id="u57FA_u672C_u4E0A_u5C31_u8FD9_u6837_u4E86_uFF0C_u4E5F_u6CA1_u6709_u6DF1_u7A76_u5176_u4ED6_u7684_u4E1C_u897F_uFF0C_u4EE5_u540E_u5982_u679C_u7814_u7A76_u7684_u6DF1_u4E86_u53EF_u80FD_u518D_u56DE_u6765_u603B_u7ED3_u5427_28later_equers_never_29_u82F1_u8BED_u5DEE_uFF0C_u6709_u9519_u5355_u8BCD_uFF0C_u522BBB_uFF0C_u63A5_u4E0B_u6765_u603B_u7ED3_u95ED_u5305"><a href="#u57FA_u672C_u4E0A_u5C31_u8FD9_u6837_u4E86_uFF0C_u4E5F_u6CA1_u6709_u6DF1_u7A76_u5176_u4ED6_u7684_u4E1C_u897F_uFF0C_u4EE5_u540E_u5982_u679C_u7814_u7A76_u7684_u6DF1_u4E86_u53EF_u80FD_u518D_u56DE_u6765_u603B_u7ED3_u5427_28later_equers_never_29_u82F1_u8BED_u5DEE_uFF0C_u6709_u9519_u5355_u8BCD_uFF0C_u522BBB_uFF0C_u63A5_u4E0B_u6765_u603B_u7ED3_u95ED_u5305" class="headerlink" title="基本上就这样了，也没有深究其他的东西，以后如果研究的深了可能再回来总结吧(later equers never)英语差，有错单词，别BB，接下来总结闭包"></a>基本上就这样了，也没有深究其他的东西，以后如果研究的深了可能再回来总结吧(later equers never)英语差，有错单词，别BB，接下来总结闭包</h4></li>
+</ul>
+<ul>
+<li><h3 id="u95ED_u5305"><a href="#u95ED_u5305" class="headerlink" title="闭包"></a>闭包</h3></li>
+</ul>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/琐事/">琐事</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">评论</h1>
+  <div class="ds-thread" data-title="swift中的代理和闭包浅谈">
+  </div>
+</section>
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2016 <a href="/">孟庆洪</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.useso.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'mqhong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
