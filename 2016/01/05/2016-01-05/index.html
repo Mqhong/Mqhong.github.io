@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="梦梦的咸鱼">
 <meta property="og:description" content="2016年01月05日星期二">
 <meta property="og:image" content="http://7xp12w.com1.z0.glb.clouddn.com/%E4%BB%A3%E7%90%86%E9%97%AD%E5%8C%85.jpg">
-<meta property="og:updated_time" content="2016-01-05T11:06:54.000Z">
+<meta property="og:updated_time" content="2016-01-06T03:54:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift中的代理和闭包浅谈">
 <meta name="twitter:description" content="2016年01月05日星期二">
@@ -109,7 +109,26 @@
 <li><h4 id="u57FA_u672C_u4E0A_u5C31_u8FD9_u6837_u4E86_uFF0C_u4E5F_u6CA1_u6709_u6DF1_u7A76_u5176_u4ED6_u7684_u4E1C_u897F_uFF0C_u4EE5_u540E_u5982_u679C_u7814_u7A76_u7684_u6DF1_u4E86_u53EF_u80FD_u518D_u56DE_u6765_u603B_u7ED3_u5427_28later_equal_never_29_u82F1_u8BED_u5DEE_uFF0C_u6709_u9519_u5355_u8BCD_uFF0C_u522BBB_uFF0C_u63A5_u4E0B_u6765_u603B_u7ED3_u95ED_u5305_60_60_60"><a href="#u57FA_u672C_u4E0A_u5C31_u8FD9_u6837_u4E86_uFF0C_u4E5F_u6CA1_u6709_u6DF1_u7A76_u5176_u4ED6_u7684_u4E1C_u897F_uFF0C_u4EE5_u540E_u5982_u679C_u7814_u7A76_u7684_u6DF1_u4E86_u53EF_u80FD_u518D_u56DE_u6765_u603B_u7ED3_u5427_28later_equal_never_29_u82F1_u8BED_u5DEE_uFF0C_u6709_u9519_u5355_u8BCD_uFF0C_u522BBB_uFF0C_u63A5_u4E0B_u6765_u603B_u7ED3_u95ED_u5305_60_60_60" class="headerlink" title="基本上就这样了，也没有深究其他的东西，以后如果研究的深了可能再回来总结吧(later equal never)英语差，有错单词，别BB，接下来总结闭包```"></a>基本上就这样了，也没有深究其他的东西，以后如果研究的深了可能再回来总结吧(later equal never)英语差，有错单词，别BB，接下来总结闭包```</h4></li>
 </ul>
 <ul>
-<li><h3 id="u95ED_u5305"><a href="#u95ED_u5305" class="headerlink" title="闭包"></a>闭包</h3></li>
+<li><h3 id="u95ED_u5305"><a href="#u95ED_u5305" class="headerlink" title="闭包"></a>闭包</h3>闭包，在我的理解，就是代码块。可以做代码块可以做的事情。闭包不是必须的，它的存在只是锦上添花。闭包可以捕获和存储上下文中定义的的任何常量和变量的引用。这就是所谓的变量和变量的自封闭，因此命名为”闭包“(“Closures）”).Swift还会处理所有捕获的引用的内存管理。 <ul>
+<li><h4 id="u5168_u5C40_u51FD_u6570_u548C_u5D4C_u5957_u51FD_u6570_u5176_u5B9E_u5C31_u662F_u7279_u6B8A_u7684_u95ED_u5305_u3002"><a href="#u5168_u5C40_u51FD_u6570_u548C_u5D4C_u5957_u51FD_u6570_u5176_u5B9E_u5C31_u662F_u7279_u6B8A_u7684_u95ED_u5305_u3002" class="headerlink" title="全局函数和嵌套函数其实就是特殊的闭包。"></a>全局函数和嵌套函数其实就是特殊的闭包。</h4></li>
+<li><h4 id="u95ED_u5305_u7684_u5F62_u5F0F_u6709_uFF1A"><a href="#u95ED_u5305_u7684_u5F62_u5F0F_u6709_uFF1A" class="headerlink" title="闭包的形式有："></a>闭包的形式有：</h4></li>
+<li>（1）全局函数都是闭包，有名字但不能捕获任何值。 </li>
+<li>（2）嵌套函数都是闭包，且有名字，也能捕获封闭函数内的值。 </li>
+<li>（3）闭包表达式都是无名闭包，使用轻量级语法，可以根据上下文环境捕获值。 </li>
+<li><h4 id="Swift_u4E2D_u7684_u95ED_u5305_u6709_u5F88_u591A_u4F18_u5316_u7684_u5730_u65B9_3A"><a href="#Swift_u4E2D_u7684_u95ED_u5305_u6709_u5F88_u591A_u4F18_u5316_u7684_u5730_u65B9_3A" class="headerlink" title="Swift中的闭包有很多优化的地方:"></a>Swift中的闭包有很多优化的地方:</h4></li>
+<li>(1)根据上下文推断参数和返回值类型 </li>
+<li>(2)从单行表达式闭包中隐式返回（也就是闭包体只有一行代码，可以省略return） </li>
+<li>(3)可以使用简化参数名，如$0, $1(从0开始，表示第i个参数…) </li>
+<li>(4)提供了尾随闭包语法(Trailing closure syntax) </li>
+<li><h4 id="Swift_u4E2D_u7684_u95ED_u5305_u7684_u8868_u8FBE_u5F0F_3A__7B_28parameters_29_-_26gt_3B_returnType_in_statements_7D"><a href="#Swift_u4E2D_u7684_u95ED_u5305_u7684_u8868_u8FBE_u5F0F_3A__7B_28parameters_29_-_26gt_3B_returnType_in_statements_7D" class="headerlink" title="Swift中的闭包的表达式: {(parameters) -&gt; returnType in statements}"></a>Swift中的闭包的表达式: {(parameters) -&gt; returnType in statements}</h4></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><h4 id="u4E4B_u524D_u8BB2_u8FC7block_u53EF_u4EE5fuck_Delegate_uFF0C_u8FD9_u4E2A_u95ED_u5305_u4E5F_u53EF_u4EE5_u3002_u6B65_u9AA4_u6309_u7167_u524D_u9762_u7684_u90A3_u4E2A_u7C7B_u4F3C_u7684_u5C31_u53EF_u4EE5_u3002_u4EE3_u7801_u5C31_u4E0D_u5199_u4E86_uFF0C_u9EBB_u70E6_u3002_u867D_u7136_u95ED_u5305_u4E0D_u662F_u5FC5_u987B_u7684_uFF0C_u4F46_u662F_u5F88_u591A_u5927_u725B_u5199_u4E1C_u897F_u90FD_u7528_u4E86_u95ED_u5305_u7684_uFF0C_u4E0D_u73A9_u8F6C_u8FD9_u4E2A_uFF0C_u5927_u725B_u5199_u7684_u4E1C_u897F_u4F60_u90FD_u770B_u4E0D_u61C2_u7684_u3002_u603B_u7ED3_u5C31_u5148_u544A_u4E00_u6BB5_u843D_uFF0C_u7B49_u518D_u5B66_u4E60_u4E00_u6BB5_u65F6_u95F4_uFF0C_u591A_u7528_u7528_uFF0C_u6CA1_u51C6_u5C31_u6709_u5176_u4ED6_u7684_u60F3_u6CD5_u4E86_u3002"><a href="#u4E4B_u524D_u8BB2_u8FC7block_u53EF_u4EE5fuck_Delegate_uFF0C_u8FD9_u4E2A_u95ED_u5305_u4E5F_u53EF_u4EE5_u3002_u6B65_u9AA4_u6309_u7167_u524D_u9762_u7684_u90A3_u4E2A_u7C7B_u4F3C_u7684_u5C31_u53EF_u4EE5_u3002_u4EE3_u7801_u5C31_u4E0D_u5199_u4E86_uFF0C_u9EBB_u70E6_u3002_u867D_u7136_u95ED_u5305_u4E0D_u662F_u5FC5_u987B_u7684_uFF0C_u4F46_u662F_u5F88_u591A_u5927_u725B_u5199_u4E1C_u897F_u90FD_u7528_u4E86_u95ED_u5305_u7684_uFF0C_u4E0D_u73A9_u8F6C_u8FD9_u4E2A_uFF0C_u5927_u725B_u5199_u7684_u4E1C_u897F_u4F60_u90FD_u770B_u4E0D_u61C2_u7684_u3002_u603B_u7ED3_u5C31_u5148_u544A_u4E00_u6BB5_u843D_uFF0C_u7B49_u518D_u5B66_u4E60_u4E00_u6BB5_u65F6_u95F4_uFF0C_u591A_u7528_u7528_uFF0C_u6CA1_u51C6_u5C31_u6709_u5176_u4ED6_u7684_u60F3_u6CD5_u4E86_u3002" class="headerlink" title="之前讲过block可以fuck Delegate，这个闭包也可以。步骤按照前面的那个类似的就可以。代码就不写了，麻烦。虽然闭包不是必须的，但是很多大牛写东西都用了闭包的，不玩转这个，大牛写的东西你都看不懂的。总结就先告一段落，等再学习一段时间，多用用，没准就有其他的想法了。"></a>之前讲过block可以fuck Delegate，这个闭包也可以。步骤按照前面的那个类似的就可以。代码就不写了，麻烦。虽然闭包不是必须的，但是很多大牛写东西都用了闭包的，不玩转这个，大牛写的东西你都看不懂的。总结就先告一段落，等再学习一段时间，多用用，没准就有其他的想法了。</h4></li>
+</ul>
+</li>
 </ul>
 
     
