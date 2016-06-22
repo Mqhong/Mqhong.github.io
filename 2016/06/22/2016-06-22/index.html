@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>Block函数封装用Block作回调的函数 | 梦梦的咸鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="孟庆洪">
+  
+  
+    <meta name="description" content="2016年06月22日星期三">
+  
+  <meta name="description" content="2016年06月22日星期三">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Block函数封装用Block作回调的函数">
+<meta property="og:url" content="http://mqhong.github.io/2016/06/22/2016-06-22/index.html">
+<meta property="og:site_name" content="梦梦的咸鱼">
+<meta property="og:description" content="2016年06月22日星期三">
+<meta property="og:image" content="http://7xp12w.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%871.jpg">
+<meta property="og:updated_time" content="2016-06-22T06:22:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Block函数封装用Block作回调的函数">
+<meta name="twitter:description" content="2016年06月22日星期三">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">梦梦的咸鱼</a></h1>
+    <p><a href="/">有梦想--孟庆洪</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">目录</a></li>
+      
+        <li><a href="/mystory">简历</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2016/06/22/2016-06-22/">
+  <time datetime="2016-06-22T02:38:48.000Z">
+    2016-06-22
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">Block函数封装用Block作回调的函数</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><img src="http://7xp12w.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%871.jpg" class="img-topic"></p>
+<h3 id="2016_u5E7406_u670822_u65E5_u661F_u671F_u4E09"><a href="#2016_u5E7406_u670822_u65E5_u661F_u671F_u4E09" class="headerlink" title="2016年06月22日星期三"></a>2016年06月22日星期三</h3><a id="more"></a>
+<h3 id="u6709_u65F6_u5019_uFF0C_u6211_u4EEC_u5728_u60F3_u5C01_u88C5_u4E00_u4E2A_u5E26_u6709block_u56DE_u8C03_u7684_u51FD_u6570_uFF0C_u6BD4_u5982_u5E38_u7528_u7684AFNetworking_uFF0C_u6216_u8005Alomfire_uFF08_u540D_u5B57_u5982_u679C_u9519_u4E86_uFF0C_u4E0D_u8981_u5728_u610F_uFF09_2C_u5C31_u4F1A_u6709_u4E2A_u5C0F_u95EE_u9898_uFF0C_u51FD_u6570_u662F_u4E0D_u80FD_u901A_u8FC7block_u8FD4_u56DE_u4EFB_u4F55_u53C2_u6570_u7684_u3002_u53EF_u4EE5_u8FD9_u4E48_u7406_u89E3_uFF08_u81F3_u5C11_u6211_u73B0_u5728_u662F_u8FD9_u4E48_u60F3_u7684_uFF09_uFF1A_u51FD_u6570_uFF0C_u662F_u540C_u6B65_u6267_u884C_u7684_uFF0C_u5B83_u5728_u6267_u884C_u7684_u65F6_u5019_u662F_u4E0D_u4F1A_u505C_u4E0B_u6765_u7684_u3002block_u5374_u4E0D_u662F_u8FD9_u6837_u7684_uFF0Cblock_u76F8_u5F53_u4E8E_u662F_u5F02_u6B65_u6267_u884C_uFF0C_u53E6_u5916_u5F00_u4E00_u4E2A_u7EBF_u7A0B_u53BB_u641E_u8FD9_u4E2A_u4E8B_u60C5_u3002_u6240_u4EE5_uFF0C_u8FD9_u5C31_u6709_u4E2A_u95EE_u9898_uFF0C_u5F53_u4F60_u60F3_u5C01_u88C5_u5E26block_u7684_u51FD_u6570_uFF0C_u5E76_u4E14_u83B7_u53D6_u5230_u4ED6_u7684block_u5185_u7684_u53C2_u6570_uFF0C_u7528_u51FD_u6570_u662F_u6CA1_u6709_u529E_u6CD5_u7684_u3002_u51FD_u6570_u5DF2_u7ECF_u6267_u884C_u5B8C_u6BD5_u5E76_u4E14_u88AB_u5185_u5B58_u91CA_u653E_u6389_u4E86_uFF0C_u4F60block_u624D_u628A_u56DE_u8C03_u4F20_u8FC7_u6765_uFF0C_u8FD9_u4E48_u5199_uFF0Cxcode_u5C31_u4F1A_u63D0_u9192_u4F60_u662F_u4E0D_u884C_u7684_u3002"><a href="#u6709_u65F6_u5019_uFF0C_u6211_u4EEC_u5728_u60F3_u5C01_u88C5_u4E00_u4E2A_u5E26_u6709block_u56DE_u8C03_u7684_u51FD_u6570_uFF0C_u6BD4_u5982_u5E38_u7528_u7684AFNetworking_uFF0C_u6216_u8005Alomfire_uFF08_u540D_u5B57_u5982_u679C_u9519_u4E86_uFF0C_u4E0D_u8981_u5728_u610F_uFF09_2C_u5C31_u4F1A_u6709_u4E2A_u5C0F_u95EE_u9898_uFF0C_u51FD_u6570_u662F_u4E0D_u80FD_u901A_u8FC7block_u8FD4_u56DE_u4EFB_u4F55_u53C2_u6570_u7684_u3002_u53EF_u4EE5_u8FD9_u4E48_u7406_u89E3_uFF08_u81F3_u5C11_u6211_u73B0_u5728_u662F_u8FD9_u4E48_u60F3_u7684_uFF09_uFF1A_u51FD_u6570_uFF0C_u662F_u540C_u6B65_u6267_u884C_u7684_uFF0C_u5B83_u5728_u6267_u884C_u7684_u65F6_u5019_u662F_u4E0D_u4F1A_u505C_u4E0B_u6765_u7684_u3002block_u5374_u4E0D_u662F_u8FD9_u6837_u7684_uFF0Cblock_u76F8_u5F53_u4E8E_u662F_u5F02_u6B65_u6267_u884C_uFF0C_u53E6_u5916_u5F00_u4E00_u4E2A_u7EBF_u7A0B_u53BB_u641E_u8FD9_u4E2A_u4E8B_u60C5_u3002_u6240_u4EE5_uFF0C_u8FD9_u5C31_u6709_u4E2A_u95EE_u9898_uFF0C_u5F53_u4F60_u60F3_u5C01_u88C5_u5E26block_u7684_u51FD_u6570_uFF0C_u5E76_u4E14_u83B7_u53D6_u5230_u4ED6_u7684block_u5185_u7684_u53C2_u6570_uFF0C_u7528_u51FD_u6570_u662F_u6CA1_u6709_u529E_u6CD5_u7684_u3002_u51FD_u6570_u5DF2_u7ECF_u6267_u884C_u5B8C_u6BD5_u5E76_u4E14_u88AB_u5185_u5B58_u91CA_u653E_u6389_u4E86_uFF0C_u4F60block_u624D_u628A_u56DE_u8C03_u4F20_u8FC7_u6765_uFF0C_u8FD9_u4E48_u5199_uFF0Cxcode_u5C31_u4F1A_u63D0_u9192_u4F60_u662F_u4E0D_u884C_u7684_u3002" class="headerlink" title="有时候，我们在想封装一个带有block回调的函数，比如常用的AFNetworking，或者Alomfire（名字如果错了，不要在意）,就会有个小问题，函数是不能通过block返回任何参数的。可以这么理解（至少我现在是这么想的）：函数，是同步执行的，它在执行的时候是不会停下来的。block却不是这样的，block相当于是异步执行，另外开一个线程去搞这个事情。所以，这就有个问题，当你想封装带block的函数，并且获取到他的block内的参数，用函数是没有办法的。函数已经执行完毕并且被内存释放掉了，你block才把回调传过来，这么写，xcode就会提醒你是不行的。"></a>有时候，我们在想封装一个带有block回调的函数，比如常用的AFNetworking，或者Alomfire（名字如果错了，不要在意）,就会有个小问题，函数是不能通过block返回任何参数的。可以这么理解（至少我现在是这么想的）：函数，是同步执行的，它在执行的时候是不会停下来的。block却不是这样的，block相当于是异步执行，另外开一个线程去搞这个事情。所以，这就有个问题，当你想封装带block的函数，并且获取到他的block内的参数，用函数是没有办法的。函数已经执行完毕并且被内存释放掉了，你block才把回调传过来，这么写，xcode就会提醒你是不行的。</h3><h3 id="u4F46_u662F_uFF0C_u5728_u770B_u540C_u4E8B_u4EE3_u7801_u7684_u65F6_u5019_uFF0C_u6211_u975E_u5E38_u60CA_u559C_u7684_u53D1_u73B0_uFF08MDZZ_uFF09_u53EF_u4EE5_u5728_u51FD_u6570_u540E_u9762_u8DDF_u4E00_u4E2A_u6216_u8005_u51E0_u4E2Ablock_uFF0C_u7136_u540E_u5728_u51FD_u6570_u5185_u90E8_uFF0C_u7ED9_u51FD_u6570_u7684block_u8D4B_u4E88_u5185_u90E8_u5C01_u88C5_u7684block_u7684_u503C_u3002__u5177_u4F53_u7684_u5B9E_u73B0_u53EF_u4EE5_u53C2_u8003_u5982_u4E0B_uFF1A"><a href="#u4F46_u662F_uFF0C_u5728_u770B_u540C_u4E8B_u4EE3_u7801_u7684_u65F6_u5019_uFF0C_u6211_u975E_u5E38_u60CA_u559C_u7684_u53D1_u73B0_uFF08MDZZ_uFF09_u53EF_u4EE5_u5728_u51FD_u6570_u540E_u9762_u8DDF_u4E00_u4E2A_u6216_u8005_u51E0_u4E2Ablock_uFF0C_u7136_u540E_u5728_u51FD_u6570_u5185_u90E8_uFF0C_u7ED9_u51FD_u6570_u7684block_u8D4B_u4E88_u5185_u90E8_u5C01_u88C5_u7684block_u7684_u503C_u3002__u5177_u4F53_u7684_u5B9E_u73B0_u53EF_u4EE5_u53C2_u8003_u5982_u4E0B_uFF1A" class="headerlink" title="但是，在看同事代码的时候，我非常惊喜的发现（MDZZ）可以在函数后面跟一个或者几个block，然后在函数内部，给函数的block赋予内部封装的block的值。 具体的实现可以参考如下："></a>但是，在看同事代码的时候，我非常惊喜的发现（MDZZ）可以在函数后面跟一个或者几个block，然后在函数内部，给函数的block赋予内部封装的block的值。 具体的实现可以参考如下：</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)MMhttpService:(<span class="built_in">NSString</span> *)url parame:(<span class="built_in">NSDictionary</span> *)parame success:(<span class="keyword">void</span> (^)(<span class="keyword">id</span>))success fail:(<span class="keyword">void</span> (^)(<span class="keyword">id</span>))failuer&#123;</span><br><span class="line">	AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];</span><br><span class="line">    manage<span class="variable">.requestSerializer</span><span class="variable">.timeoutInterval</span> = <span class="number">10.0</span>f;<span class="comment">//设置10秒后就爆炸</span></span><br><span class="line">    [manage POST:url parameters:parame progress:^(<span class="built_in">NSProgress</span> * _Nonnull uploadProgress) &#123;</span><br><span class="line">        <span class="comment">//tudo</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"这里执行的是progress 代码块"</span>);</span><br><span class="line">    &#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</span><br><span class="line">        <span class="comment">//通过这个方式，来进行封装block的参数外传</span></span><br><span class="line">        success(responseObject);</span><br><span class="line">    &#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</span><br><span class="line">        failuer(error);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u5B9E_u73B0_u7684_u65F6_u5019_u5C31_u662F_u8FD9_u4E2AB_u6837"><a href="#u5B9E_u73B0_u7684_u65F6_u5019_u5C31_u662F_u8FD9_u4E2AB_u6837" class="headerlink" title="实现的时候就是这个B样"></a>实现的时候就是这个B样</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MM_NetWorking *mm = [[MM_NetWorking alloc]init];</span><br><span class="line">    [mm <span class="string">MMhttpService:</span>@<span class="string">"url"</span> <span class="string">parame:</span>@&#123;&#125; <span class="string">success:</span>^(id response) &#123;</span><br><span class="line">        NSLog(@<span class="string">"这是成功的咯%@"</span>,response);</span><br><span class="line">    &#125; <span class="string">fail:</span>^(id error) &#123;</span><br><span class="line">        NSLog(@<span class="string">"这是失败的咯%@"</span>,error);</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+<h2 id="u5B8C_u7F8E"><a href="#u5B8C_u7F8E" class="headerlink" title="完美"></a>完美</h2>
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/琐事/">琐事</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">评论</h1>
+  <div class="ds-thread" data-title="Block函数封装用Block作回调的函数">
+  </div>
+</section>
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2016 <a href="/">孟庆洪</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.useso.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'mqhong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
