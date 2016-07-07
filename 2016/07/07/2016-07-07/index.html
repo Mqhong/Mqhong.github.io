@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>Object-C属性的特性 | 梦梦的咸鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="孟庆洪">
+  
+  
+    <meta name="description" content="2016年07月07日星期四">
+  
+  <meta name="description" content="2016年07月07日星期四">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object-C属性的特性">
+<meta property="og:url" content="http://mqhong.github.io/2016/07/07/2016-07-07/index.html">
+<meta property="og:site_name" content="梦梦的咸鱼">
+<meta property="og:description" content="2016年07月07日星期四">
+<meta property="og:image" content="http://7xp12w.com1.z0.glb.clouddn.com/%E7%94%B5%E8%B7%AF.jpg">
+<meta property="og:updated_time" content="2016-07-07T15:53:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Object-C属性的特性">
+<meta name="twitter:description" content="2016年07月07日星期四">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">梦梦的咸鱼</a></h1>
+    <p><a href="/">有梦想--孟庆洪</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">目录</a></li>
+      
+        <li><a href="/mystory">简历</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2016/07/07/2016-07-07/">
+  <time datetime="2016-07-07T15:30:53.000Z">
+    2016-07-07
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">Object-C属性的特性</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><img src="http://7xp12w.com1.z0.glb.clouddn.com/%E7%94%B5%E8%B7%AF.jpg" class="img-topic"></p>
+<h3 id="2016_u5E7407_u670807_u65E5_u661F_u671F_u56DB"><a href="#2016_u5E7407_u670807_u65E5_u661F_u671F_u56DB" class="headerlink" title="2016年07月07日星期四"></a>2016年07月07日星期四</h3><a id="more"></a>
+<h3 id="u53C8_u662F_u5F88_u957F_u4E00_u6BB5_u65F6_u95F4_u6CA1_u6709_u5199_u535A_u5BA2_u4E86_uFF0C_u5509_uFF0C_u521A_u6BD5_u4E1A_uFF0C_u6E23_u6E23_u4E3A_u4E86_u6DF7_u53E3_u996D_u5403_uFF0C_u53EA_u6709_u597D_u597D_u7684_u53BB_u5199_u9879_u76EE_u4EE3_u7801_u4E86_u3002"><a href="#u53C8_u662F_u5F88_u957F_u4E00_u6BB5_u65F6_u95F4_u6CA1_u6709_u5199_u535A_u5BA2_u4E86_uFF0C_u5509_uFF0C_u521A_u6BD5_u4E1A_uFF0C_u6E23_u6E23_u4E3A_u4E86_u6DF7_u53E3_u996D_u5403_uFF0C_u53EA_u6709_u597D_u597D_u7684_u53BB_u5199_u9879_u76EE_u4EE3_u7801_u4E86_u3002" class="headerlink" title="又是很长一段时间没有写博客了，唉，刚毕业，渣渣为了混口饭吃，只有好好的去写项目代码了。"></a>又是很长一段时间没有写博客了，唉，刚毕业，渣渣为了混口饭吃，只有好好的去写项目代码了。</h3><h3 id="u7136_u800C_uFF0C_u4E00_u8D77_u6BD5_u4E1A_u7684_u5176_u4ED6_u540C_u5B66_uFF0C_u5374_u5728_u5927_u725B_u7684_u5E26_u9886_u4E0B_uFF0C_u6DF1_u5165_u5B66_u4E60_u7F16_u7A0B_u6A21_u5F0F_uFF0C_u5B66_u4E60_u6846_u67B6_u5565_u7684_u3002_u5509_uFF0C_u6211_u5C31_u53EA_u597D_u6162_u6162_u7684_u6478_u7D22_u4E86_u3002"><a href="#u7136_u800C_uFF0C_u4E00_u8D77_u6BD5_u4E1A_u7684_u5176_u4ED6_u540C_u5B66_uFF0C_u5374_u5728_u5927_u725B_u7684_u5E26_u9886_u4E0B_uFF0C_u6DF1_u5165_u5B66_u4E60_u7F16_u7A0B_u6A21_u5F0F_uFF0C_u5B66_u4E60_u6846_u67B6_u5565_u7684_u3002_u5509_uFF0C_u6211_u5C31_u53EA_u597D_u6162_u6162_u7684_u6478_u7D22_u4E86_u3002" class="headerlink" title="然而，一起毕业的其他同学，却在大牛的带领下，深入学习编程模式，学习框架啥的。唉，我就只好慢慢的摸索了。"></a>然而，一起毕业的其他同学，却在大牛的带领下，深入学习编程模式，学习框架啥的。唉，我就只好慢慢的摸索了。</h3><h3 id="u82E5_u5E72_u5E74_u4E4B_u540E_uFF0C_u4E00_u4E2A_u9AD8_u5BCC_u5E05_u8DEF_u8FC7_u4E00_u4E2A_u4E5E_u4E10_u524D_u9762_u6446_u653E_u7684_u7897_u7684_u9762_u524D_uFF0C_u4E22_u4E0B_u4E5E_u4E10_u4E00_u4E2A_u6708_u7684_u996D_u94B1_uFF0C_u5374_u53EA_u662F_u89C9_u5F97_u5FC3_u60C5_u597D_uFF0C_u505A_u4E86_u4E00_u4EF6_u6709_u8DA3_u7684_u4E8B_u60C5_u3002"><a href="#u82E5_u5E72_u5E74_u4E4B_u540E_uFF0C_u4E00_u4E2A_u9AD8_u5BCC_u5E05_u8DEF_u8FC7_u4E00_u4E2A_u4E5E_u4E10_u524D_u9762_u6446_u653E_u7684_u7897_u7684_u9762_u524D_uFF0C_u4E22_u4E0B_u4E5E_u4E10_u4E00_u4E2A_u6708_u7684_u996D_u94B1_uFF0C_u5374_u53EA_u662F_u89C9_u5F97_u5FC3_u60C5_u597D_uFF0C_u505A_u4E86_u4E00_u4EF6_u6709_u8DA3_u7684_u4E8B_u60C5_u3002" class="headerlink" title="若干年之后，一个高富帅路过一个乞丐前面摆放的碗的面前，丢下乞丐一个月的饭钱，却只是觉得心情好，做了一件有趣的事情。"></a>若干年之后，一个高富帅路过一个乞丐前面摆放的碗的面前，丢下乞丐一个月的饭钱，却只是觉得心情好，做了一件有趣的事情。</h3><h3 id="u4E5F_u8BB8_uFF0C_u90A3_u4E2A_u4E5E_u4E10_u5C31_u662F_u6211_u4E86_u3002"><a href="#u4E5F_u8BB8_uFF0C_u90A3_u4E2A_u4E5E_u4E10_u5C31_u662F_u6211_u4E86_u3002" class="headerlink" title="也许，那个乞丐就是我了。"></a>也许，那个乞丐就是我了。</h3><h3 id="u4E0D_u8FC7_uFF0C_u5C31_u7B97_u6211_u7A77_u56F0_u6F66_u5012_u4E86_uFF0C_u6211_u8FD8_u53EF_u4EE5_u56DE_u53BB_u79CD_u7530_u3002O_28_u2229__u2229_29O"><a href="#u4E0D_u8FC7_uFF0C_u5C31_u7B97_u6211_u7A77_u56F0_u6F66_u5012_u4E86_uFF0C_u6211_u8FD8_u53EF_u4EE5_u56DE_u53BB_u79CD_u7530_u3002O_28_u2229__u2229_29O" class="headerlink" title="不过，就算我穷困潦倒了，我还可以回去种田。O(∩_∩)O"></a>不过，就算我穷困潦倒了，我还可以回去种田。O(∩_∩)O</h3><h2 id="u5C5E_u6027_u7684_u7279_u6027"><a href="#u5C5E_u6027_u7684_u7279_u6027" class="headerlink" title="属性的特性"></a>属性的特性</h2><h3 id="u7C7B_u522B_u2014_u2014_u539F_u5B50_u6027"><a href="#u7C7B_u522B_u2014_u2014_u539F_u5B50_u6027" class="headerlink" title="类别——原子性"></a>类别——原子性</h3><h4 id="nonatomic_uFF1A_u4F7F_u7528_u8BE5_u7279_u6027_u53EF_u4EE5_u5728_u591A_u7EBF_u7A0B_u5E76_u53D1_u7684_u60C5_u51B5_u4E2D_uFF0C_u5C06_u8BBF_u95EE_u5668_u8BBE_u7F6E_u4E3A_u975E_u539F_u5B50_u6027_u7684_uFF0C_u56E0_u800C_u80FD_u591F_u63D0_u4F9B_u4E0D_u540C_u7684_u7ED3_u679C_u3002_u5982_u679C_u4E0D_u8BBE_u7F6E_u975E_u539F_u5B50_u6027_uFF0C_u8BBF_u95EE_u5668_u5C31_u4F1A_u62E5_u6709_u539F_u5B50_u6027_uFF0C_u6362_u8A00_u4E4B_uFF0C_u8D4B_u503C_u548C_u8FD4_u56DE_u7ED3_u679C_u6C38_u8FDC_u90FD_u4F1A_u5B8C_u5168_u540C_u6B65_u3002"><a href="#nonatomic_uFF1A_u4F7F_u7528_u8BE5_u7279_u6027_u53EF_u4EE5_u5728_u591A_u7EBF_u7A0B_u5E76_u53D1_u7684_u60C5_u51B5_u4E2D_uFF0C_u5C06_u8BBF_u95EE_u5668_u8BBE_u7F6E_u4E3A_u975E_u539F_u5B50_u6027_u7684_uFF0C_u56E0_u800C_u80FD_u591F_u63D0_u4F9B_u4E0D_u540C_u7684_u7ED3_u679C_u3002_u5982_u679C_u4E0D_u8BBE_u7F6E_u975E_u539F_u5B50_u6027_uFF0C_u8BBF_u95EE_u5668_u5C31_u4F1A_u62E5_u6709_u539F_u5B50_u6027_uFF0C_u6362_u8A00_u4E4B_uFF0C_u8D4B_u503C_u548C_u8FD4_u56DE_u7ED3_u679C_u6C38_u8FDC_u90FD_u4F1A_u5B8C_u5168_u540C_u6B65_u3002" class="headerlink" title="nonatomic：使用该特性可以在多线程并发的情况中，将访问器设置为非原子性的，因而能够提供不同的结果。如果不设置非原子性，访问器就会拥有原子性，换言之，赋值和返回结果永远都会完全同步。"></a>nonatomic：使用该特性可以在多线程并发的情况中，将访问器设置为非原子性的，因而能够提供不同的结果。如果不设置非原子性，访问器就会拥有原子性，换言之，赋值和返回结果永远都会完全同步。</h4><h3 id="u7C7B_u522B_u2014_u2014_u8BBE_u7F6E_u5668_u8BED_u4E49"><a href="#u7C7B_u522B_u2014_u2014_u8BBE_u7F6E_u5668_u8BED_u4E49" class="headerlink" title="类别——设置器语义"></a>类别——设置器语义</h3><h4 id="assign_uFF1A_u901A_u8FC7_u8BE5_u7279_u6027_u53EF_u4EE5_u5728_u4E0D_u4F7F_u7528copy_u548Cretain_u7279_u6027_u7684_u60C5_u51B5_u4E0B_uFF0C_u4F7F_u5C5E_u6027_u7684_u8BBE_u7F6E_u5668_u65B9_u6CD5_u6267_u884C_u7B80_u5355_u7684_u8D4B_u503C_u64CD_u4F5C_u3002_u8FD9_u4E2A_u7279_u6027_u662F_u9ED8_u8BA4_u8BBE_u7F6E_u3002"><a href="#assign_uFF1A_u901A_u8FC7_u8BE5_u7279_u6027_u53EF_u4EE5_u5728_u4E0D_u4F7F_u7528copy_u548Cretain_u7279_u6027_u7684_u60C5_u51B5_u4E0B_uFF0C_u4F7F_u5C5E_u6027_u7684_u8BBE_u7F6E_u5668_u65B9_u6CD5_u6267_u884C_u7B80_u5355_u7684_u8D4B_u503C_u64CD_u4F5C_u3002_u8FD9_u4E2A_u7279_u6027_u662F_u9ED8_u8BA4_u8BBE_u7F6E_u3002" class="headerlink" title="assign：通过该特性可以在不使用copy和retain特性的情况下，使属性的设置器方法执行简单的赋值操作。这个特性是默认设置。"></a>assign：通过该特性可以在不使用copy和retain特性的情况下，使属性的设置器方法执行简单的赋值操作。这个特性是默认设置。</h4><h4 id="retain_3A_u5728_u8D4B_u503C_u65F6_uFF0C_u8F93_u5165_u503C_u4F1A_u88AB_u53D1_u9001_u4E00_u6761_u4FDD_u7559_u4FE1_u606F_uFF0C_u800C_u4E0A_u4E00_u4E2A_u503C_u4F1A_u88AB_u53D1_u9001_u4E00_u6761_u91CA_u653E_u6D88_u606F_u3002"><a href="#retain_3A_u5728_u8D4B_u503C_u65F6_uFF0C_u8F93_u5165_u503C_u4F1A_u88AB_u53D1_u9001_u4E00_u6761_u4FDD_u7559_u4FE1_u606F_uFF0C_u800C_u4E0A_u4E00_u4E2A_u503C_u4F1A_u88AB_u53D1_u9001_u4E00_u6761_u91CA_u653E_u6D88_u606F_u3002" class="headerlink" title="retain:在赋值时，输入值会被发送一条保留信息，而上一个值会被发送一条释放消息。"></a>retain:在赋值时，输入值会被发送一条保留信息，而上一个值会被发送一条释放消息。</h4><h4 id="copy_3A_u5728_u8D4B_u503C_u65F6_uFF0C_u8F93_u5165_u503C_u4F1A_u88AB_u53D1_u9001_u4E00_u6761_u65B0_u6D88_u606F_u7684_u526F_u672C_uFF0C_u800C_u4E0A_u4E00_u4E2A_u503C_u4F1A_u88AB_u53D1_u9001_u4E00_u6761_u91CA_u653E_u6D88_u606F_u3002"><a href="#copy_3A_u5728_u8D4B_u503C_u65F6_uFF0C_u8F93_u5165_u503C_u4F1A_u88AB_u53D1_u9001_u4E00_u6761_u65B0_u6D88_u606F_u7684_u526F_u672C_uFF0C_u800C_u4E0A_u4E00_u4E2A_u503C_u4F1A_u88AB_u53D1_u9001_u4E00_u6761_u91CA_u653E_u6D88_u606F_u3002" class="headerlink" title="copy:在赋值时，输入值会被发送一条新消息的副本，而上一个值会被发送一条释放消息。"></a>copy:在赋值时，输入值会被发送一条新消息的副本，而上一个值会被发送一条释放消息。</h4><h4 id="strong_3A_u5F53_u5C5E_u6027_u4F7F_u7528ARC_u5185_u5B58_u7BA1_u7406_u529F_u80FD_u65F6_uFF0C_u8BE5_u7279_u6027_u7B49_u540C_u4E8Eretain_u7279_u6027_u3002"><a href="#strong_3A_u5F53_u5C5E_u6027_u4F7F_u7528ARC_u5185_u5B58_u7BA1_u7406_u529F_u80FD_u65F6_uFF0C_u8BE5_u7279_u6027_u7B49_u540C_u4E8Eretain_u7279_u6027_u3002" class="headerlink" title="strong:当属性使用ARC内存管理功能时，该特性等同于retain特性。"></a>strong:当属性使用ARC内存管理功能时，该特性等同于retain特性。</h4><h4 id="weak_3A_u5F53_u5C5E_u6027_u4F7F_u7528ARC_u5185_u5B58_u7BA1_u7406_u529F_u80FD_u65F6_uFF0C_u8BE5_u7279_u6027_u7684_u4F5C_u7528_u4E0Eassign_u7279_u6027_u7C7B_u578B_uFF0C_u4F46_u5982_u679C_u5F15_u7528_u5BF9_u8C61_u88AB_u91CA_u653E_u4E86_uFF0C_u5C5E_u6027_u7684_u503C_u4F1A_u88AB_u8BBE_u7F6E_u4E3Anil"><a href="#weak_3A_u5F53_u5C5E_u6027_u4F7F_u7528ARC_u5185_u5B58_u7BA1_u7406_u529F_u80FD_u65F6_uFF0C_u8BE5_u7279_u6027_u7684_u4F5C_u7528_u4E0Eassign_u7279_u6027_u7C7B_u578B_uFF0C_u4F46_u5982_u679C_u5F15_u7528_u5BF9_u8C61_u88AB_u91CA_u653E_u4E86_uFF0C_u5C5E_u6027_u7684_u503C_u4F1A_u88AB_u8BBE_u7F6E_u4E3Anil" class="headerlink" title="weak:当属性使用ARC内存管理功能时，该特性的作用与assign特性类型，但如果引用对象被释放了，属性的值会被设置为nil."></a>weak:当属性使用ARC内存管理功能时，该特性的作用与assign特性类型，但如果引用对象被释放了，属性的值会被设置为nil.</h4><h3 id="u7C7B_u522B_u2014_u2014_u53EF_u8BFB_u5199"><a href="#u7C7B_u522B_u2014_u2014_u53EF_u8BFB_u5199" class="headerlink" title="类别——可读写"></a>类别——可读写</h3><h4 id="readwrite_3A_u4F7F_u7528_u8BE5_u7279_u6027_u65F6_uFF0C_u5C5E_u6027_u53EF_u4EE5_u88AB_u8BFB_u53D6_u4E5F_u53EF_u4EE5_u88AB_u5199_u5165_uFF0C_u800C_u4E14_u5FC5_u987B_u5B9E_u73B0getter_u548Csetter_u65B9_u6CD5_uFF0C_u8FD9_u4E2A_u7279_u6027_u4E5F_u662F_u9ED8_u8BA4_u7684"><a href="#readwrite_3A_u4F7F_u7528_u8BE5_u7279_u6027_u65F6_uFF0C_u5C5E_u6027_u53EF_u4EE5_u88AB_u8BFB_u53D6_u4E5F_u53EF_u4EE5_u88AB_u5199_u5165_uFF0C_u800C_u4E14_u5FC5_u987B_u5B9E_u73B0getter_u548Csetter_u65B9_u6CD5_uFF0C_u8FD9_u4E2A_u7279_u6027_u4E5F_u662F_u9ED8_u8BA4_u7684" class="headerlink" title="readwrite:使用该特性时，属性可以被读取也可以被写入，而且必须实现getter和setter方法，这个特性也是默认的"></a>readwrite:使用该特性时，属性可以被读取也可以被写入，而且必须实现getter和setter方法，这个特性也是默认的</h4><h3 id="u7C7B_u522B_u2014_u2014_u65B9_u6CD5_u540D_u79F0"><a href="#u7C7B_u522B_u2014_u2014_u65B9_u6CD5_u540D_u79F0" class="headerlink" title="类别——方法名称"></a>类别——方法名称</h3><h4 id="getter_3DgetterName_3A_u5C06getter_u65B9_u6CD5_u91CD_u547D_u540D_u4E3A_u65B0_u8BFB_u53D6_u5668_u7684_u540D_u79F0_u3002"><a href="#getter_3DgetterName_3A_u5C06getter_u65B9_u6CD5_u91CD_u547D_u540D_u4E3A_u65B0_u8BFB_u53D6_u5668_u7684_u540D_u79F0_u3002" class="headerlink" title="getter=getterName:将getter方法重命名为新读取器的名称。"></a>getter=getterName:将getter方法重命名为新读取器的名称。</h4><h4 id="setter_3DsetterName_3A_u5C06setter_u65B9_u6CD5_u91CD_u547D_u540D_u4E3A_u65B0_u8BBE_u7F6E_u5668_u7684_u540D_u79F0"><a href="#setter_3DsetterName_3A_u5C06setter_u65B9_u6CD5_u91CD_u547D_u540D_u4E3A_u65B0_u8BBE_u7F6E_u5668_u7684_u540D_u79F0" class="headerlink" title="setter=setterName:将setter方法重命名为新设置器的名称"></a>setter=setterName:将setter方法重命名为新设置器的名称</h4><h2 id="u4ECA_u5929_u5C31_u5230_u8FD9_u91CC_u5427_uFF0C_u6574_u5929_u5509_u58F0_u53F9_u6C14_u7684_uFF0C_u8FD8_u4E0D_u5982_u597D_u597D_u7684_u770B_u770B_u4E66_u3002"><a href="#u4ECA_u5929_u5C31_u5230_u8FD9_u91CC_u5427_uFF0C_u6574_u5929_u5509_u58F0_u53F9_u6C14_u7684_uFF0C_u8FD8_u4E0D_u5982_u597D_u597D_u7684_u770B_u770B_u4E66_u3002" class="headerlink" title="今天就到这里吧，整天唉声叹气的，还不如好好的看看书。"></a>今天就到这里吧，整天唉声叹气的，还不如好好的看看书。</h2>
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/琐事/">琐事</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">评论</h1>
+  <div class="ds-thread" data-title="Object-C属性的特性">
+  </div>
+</section>
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2016 <a href="/">孟庆洪</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.useso.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'mqhong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
