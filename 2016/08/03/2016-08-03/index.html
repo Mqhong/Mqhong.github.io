@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="梦梦的咸鱼">
 <meta property="og:description" content="2016年08月03日星期三">
 <meta property="og:image" content="http://7xp12w.com1.z0.glb.clouddn.com/Bug1.jpg">
-<meta property="og:updated_time" content="2016-08-02T17:14:52.000Z">
+<meta property="og:updated_time" content="2016-08-03T01:21:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift debugger 无法在控制台 po 变量值的问题">
 <meta name="twitter:description" content="2016年08月03日星期三">
@@ -75,7 +75,18 @@
     
       <p><img src="http://7xp12w.com1.z0.glb.clouddn.com/Bug1.jpg" class="img-topic"></p>
 <h3 id="2016_u5E7408_u670803_u65E5_u661F_u671F_u4E09"><a href="#2016_u5E7408_u670803_u65E5_u661F_u671F_u4E09" class="headerlink" title="2016年08月03日星期三"></a>2016年08月03日星期三</h3><a id="more"></a>
-<h3 id="u65E9_u4E0A_u518D_u6765_u4FEE_u6539_uFF0C_u592A_u7D2F_u4E86_uFF0C_u8981_u7761_u89C9_u3002"><a href="#u65E9_u4E0A_u518D_u6765_u4FEE_u6539_uFF0C_u592A_u7D2F_u4E86_uFF0C_u8981_u7761_u89C9_u3002" class="headerlink" title="早上再来修改，太累了，要睡觉。"></a>早上再来修改，太累了，要睡觉。</h3>
+<ul>
+<li><h3 id="u6628_u5929_u7528Swift_u5199_u9879_u76EE_uFF0C_u5728_u642D_u5EFA_u6846_u67B6_u7684_u65F6_u5019_uFF0C_u4F7F_u7528cocoapods_u96C6_u6210_u7B2C_u4E09_u65B9_u5E93_u7684_u65F6_u5019_uFF0C_u5F53_u65F6_u5728_u6267_u884Cpod_install_u4E4B_u540E_uFF0C_u5C31_u5728_u63A7_u5236_u53F0_u4E2D_u663E_u793A_u53EF_u80FD_u4F1A_u6709debugger_u7684_u95EE_u9898_uFF0C_u5F53_u65F6_u6CA1_u6709_u5173_u5FC3_uFF0C_u540E_u6765_u51FA_u4E86_u9519_u8BEF_u3002"><a href="#u6628_u5929_u7528Swift_u5199_u9879_u76EE_uFF0C_u5728_u642D_u5EFA_u6846_u67B6_u7684_u65F6_u5019_uFF0C_u4F7F_u7528cocoapods_u96C6_u6210_u7B2C_u4E09_u65B9_u5E93_u7684_u65F6_u5019_uFF0C_u5F53_u65F6_u5728_u6267_u884Cpod_install_u4E4B_u540E_uFF0C_u5C31_u5728_u63A7_u5236_u53F0_u4E2D_u663E_u793A_u53EF_u80FD_u4F1A_u6709debugger_u7684_u95EE_u9898_uFF0C_u5F53_u65F6_u6CA1_u6709_u5173_u5FC3_uFF0C_u540E_u6765_u51FA_u4E86_u9519_u8BEF_u3002" class="headerlink" title="昨天用Swift写项目，在搭建框架的时候，使用cocoapods集成第三方库的时候，当时在执行pod install之后，就在控制台中显示可能会有debugger的问题，当时没有关心，后来出了错误。"></a>昨天用Swift写项目，在搭建框架的时候，使用cocoapods集成第三方库的时候，当时在执行pod install之后，就在控制台中显示可能会有debugger的问题，当时没有关心，后来出了错误。</h3><p>我在执行代码的时候，在代码中打了个断点。这时候，问题来了，打了断点的代码附近的变量值竟然不显示，而且控制台中的所有变量都显示的是自己的名字。当时找不到原因。只依稀记得在执行pod的那个提示。这怎么办喃？</p>
+</li>
+<li><h4 id="u9996_u5148_uFF0C_u6211_u4EEC_u8981_u786E_u8BA4pod_u63D0_u9192_u7684_u7B2C_u4E09_u65B9_u5E93_u51FA_u95EE_u9898_uFF0C_u5230_u5E95_u662F_u54EA_u4E2A_u5E93_u51FA_u4E86_u95EE_u9898_uFF0C_u6211_u4EEC_u624D_u597D_u53BB_u7740_u624B_u89E3_u51B3_u3002"><a href="#u9996_u5148_uFF0C_u6211_u4EEC_u8981_u786E_u8BA4pod_u63D0_u9192_u7684_u7B2C_u4E09_u65B9_u5E93_u51FA_u95EE_u9898_uFF0C_u5230_u5E95_u662F_u54EA_u4E2A_u5E93_u51FA_u4E86_u95EE_u9898_uFF0C_u6211_u4EEC_u624D_u597D_u53BB_u7740_u624B_u89E3_u51B3_u3002" class="headerlink" title="首先，我们要确认pod提醒的第三方库出问题，到底是哪个库出了问题，我们才好去着手解决。"></a>首先，我们要确认pod提醒的第三方库出问题，到底是哪个库出了问题，我们才好去着手解决。</h4><p>解决方案是：在控制台(lldb)后输入 打印变量的语句</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print <span class="function"><span class="title">xxx</span><span class="params">(变量)</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="u7136_u540E_u5C31_u4F1A_u5728_u63A7_u5236_u53F0_u4E2D_u8F93_u51FA_uFF0C_u90A3_u4E2A_u7C7B_u5E93_u7684import__u627E_u4E0D_u5230_u554A_u4EC0_u4E48_u7684_uFF0C_u7136_u540E_uFF0C_u6839_u636E_u63D0_u793A_uFF0C_u628A_u76F8_u5E94_u7684_u7C7B_u5E93_u4ECEpodfile_u6587_u4EF6_u4E2D_u5220_u9664_uFF0C_u6267_u884Cpod_install__u7136_u540E_u628A_u4E4B_u524D_u7684_u90A3_u4E2A_u5E93_u76F4_u63A5_u653E_u8FDBswift_u9879_u76EE_u4E2D_uFF0C_u4E0D_u518D_u7528cocoapods_u6765_u7BA1_u7406_uFF0C_u7136_u540E_u95EE_u9898_u5C31_u89E3_u51B3_u4E86_u3002"><a href="#u7136_u540E_u5C31_u4F1A_u5728_u63A7_u5236_u53F0_u4E2D_u8F93_u51FA_uFF0C_u90A3_u4E2A_u7C7B_u5E93_u7684import__u627E_u4E0D_u5230_u554A_u4EC0_u4E48_u7684_uFF0C_u7136_u540E_uFF0C_u6839_u636E_u63D0_u793A_uFF0C_u628A_u76F8_u5E94_u7684_u7C7B_u5E93_u4ECEpodfile_u6587_u4EF6_u4E2D_u5220_u9664_uFF0C_u6267_u884Cpod_install__u7136_u540E_u628A_u4E4B_u524D_u7684_u90A3_u4E2A_u5E93_u76F4_u63A5_u653E_u8FDBswift_u9879_u76EE_u4E2D_uFF0C_u4E0D_u518D_u7528cocoapods_u6765_u7BA1_u7406_uFF0C_u7136_u540E_u95EE_u9898_u5C31_u89E3_u51B3_u4E86_u3002" class="headerlink" title="然后就会在控制台中输出，那个类库的import 找不到啊什么的，然后，根据提示，把相应的类库从podfile文件中删除，执行pod install 然后把之前的那个库直接放进swift项目中，不再用cocoapods来管理，然后问题就解决了。"></a>然后就会在控制台中输出，那个类库的import 找不到啊什么的，然后，根据提示，把相应的类库从podfile文件中删除，执行pod install 然后把之前的那个库直接放进swift项目中，不再用cocoapods来管理，然后问题就解决了。</h4></li>
+</ul>
+<p>如果有更好的解决方案，请给我留言。</p>
+</li>
+</ul>
+
     
   </div>
   <footer>
