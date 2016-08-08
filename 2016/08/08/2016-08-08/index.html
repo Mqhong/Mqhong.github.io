@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>IOS监听网络的变化状况以及是否已连接可用的网络 | 梦梦的咸鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="孟庆洪">
+  
+  
+    <meta name="description" content="2016年08月08日星期一">
+  
+  <meta name="description" content="2016年08月08日星期一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOS监听网络的变化状况以及是否已连接可用的网络">
+<meta property="og:url" content="http://mqhong.github.io/2016/08/08/2016-08-08/index.html">
+<meta property="og:site_name" content="梦梦的咸鱼">
+<meta property="og:description" content="2016年08月08日星期一">
+<meta property="og:image" content="http://7xp12w.com1.z0.glb.clouddn.com/%E7%A7%8B%E5%8F%B6.jpg">
+<meta property="og:updated_time" content="2016-08-08T14:33:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOS监听网络的变化状况以及是否已连接可用的网络">
+<meta name="twitter:description" content="2016年08月08日星期一">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">梦梦的咸鱼</a></h1>
+    <p><a href="/">有梦想--孟庆洪</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">目录</a></li>
+      
+        <li><a href="/mystory">简历</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2016/08/08/2016-08-08/">
+  <time datetime="2016-08-08T13:44:22.000Z">
+    2016-08-08
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">IOS监听网络的变化状况以及是否已连接可用的网络</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><img src="http://7xp12w.com1.z0.glb.clouddn.com/%E7%A7%8B%E5%8F%B6.jpg" class="img-topic"></p>
+<h3 id="2016_u5E7408_u670808_u65E5_u661F_u671F_u4E00"><a href="#2016_u5E7408_u670808_u65E5_u661F_u671F_u4E00" class="headerlink" title="2016年08月08日星期一"></a>2016年08月08日星期一</h3><a id="more"></a>
+<ul>
+<li>今天改bug的时候，测试小美眉找我说，我的app在使用的时候，突然没有网络了，却没有得到提醒，是个非常不好的体验。 寻思着这个道理，我也在网上找了半天教程，结果都是，抄过来抄过去，你抄我的我抄你的，而且都TM得抄的不专业，连一个可以运行的demo都没有，简直是糟心的不行。虽然我也没有可以运行的demo，但是，我的代码至少是经过了修改的，让各位群众大兄弟不至于看到一个没有声明的变量突兀的在那里被赋值，就连最基本的变量的类型都要靠猜半天才能知道，可读性太低。蠢得一p.</li>
+</ul>
+<ul>
+<li>吐槽完毕，言归正传。</li>
+</ul>
+<ul>
+<li>网上大部分解决方案都是基于Reachability，但是，也许是我愚钝或者是想的比较多。在使用中，我遇到了麻烦，如果说是个大麻烦也不为过，因为我可能调试了有两三个小时之久。</li>
+</ul>
+<h2 id="u7F51_u4E0A_u7684_u57FA_u672C_u89E3_u51B3_u65B9_u6848_uFF0C_u5927_u90E8_u5206_u662F_u8FD9_u6837_u3002"><a href="#u7F51_u4E0A_u7684_u57FA_u672C_u89E3_u51B3_u65B9_u6848_uFF0C_u5927_u90E8_u5206_u662F_u8FD9_u6837_u3002" class="headerlink" title="网上的基本解决方案，大部分是这样。"></a>网上的基本解决方案，大部分是这样。</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NSString *urlStr = @<span class="string">"www.baidu.com"</span>;</span><br><span class="line">  Reachability *netConnect = [Reachability <span class="string">reachabilityWithHostName:</span>urlStr];</span><br><span class="line">  [[NSNotificationCenter defaultCenter] <span class="string">addObserver:</span>self <span class="string">selector:</span><span class="annotation">@selector</span>(<span class="string">reachabilityChanged:</span>) <span class="string">name:</span>kReachabilityChangedNotification <span class="string">object:</span>nil];</span><br><span class="line">  [netConnect startNotifier];</span><br><span class="line"></span><br><span class="line">  <span class="comment">//然后监听reachabilityChanged：方法，网络状态一发生改变就获取改变事件。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>但是，这里有一个问题，就算网络发生了改变，你怎么知道发生的改变是否可用？打个比方：你手机本来用着3G网，然后你连接到一个没有接网线的无线wifi上，你是监听了是否发生改变。但是，不知道是不是我的手机有问题，还是上天对我不公，总是遇到些小问题。我就算写了urlStr，它还是只判断当前是否已经连接网络，而对于是否已经能和全世界的皮薄一起开心的嗑瓜子，貌似他就不管了。</li>
+</ul>
+<ul>
+<li>对于这种，只好发挥我自己的小聪明。我只需要知道什么时候网络发生了改变。然后改变之后，我调用一个网址，看是否能得到回应，如果能得到回应，就说明连接上了互联网，如果得不到回应，那么，就说明了我没有连接上互联网。剑走偏锋。</li>
+</ul>
+<ul>
+<li><p>需要监听的事件内这么写。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通知监听的事件</span></span><br><span class="line">-(<span class="keyword">void</span>)reachabilityChanged:(<span class="built_in">NSNotification</span> *)note&#123;</span><br><span class="line">    <span class="comment">//设置了缓冲区，在1秒内多次触发这个函数 将会只执行最后一次，妈的，这里有时候一次要调用两下。</span></span><br><span class="line">    <span class="comment">//取消的函数 必须要和 传入的函数 带的值一样</span></span><br><span class="line">    [<span class="built_in">NSObject</span> cancelPreviousPerformRequestsWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(updateInterfaceWithReachability) object:<span class="literal">nil</span>];</span><br><span class="line">    [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(updateInterfaceWithReachability) withObject:<span class="literal">nil</span> afterDelay:<span class="number">1</span>];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//网络连接该干活了</span></span><br><span class="line">-(<span class="keyword">void</span>)updateInterfaceWithReachability&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://www.baidu.com"</span>];</span><br><span class="line">    <span class="comment">// 创建请求（requset）</span></span><br><span class="line">    <span class="built_in">NSURLRequest</span> *request = [[<span class="built_in">NSURLRequest</span> alloc]initWithURL:url cachePolicy:<span class="built_in">NSURLRequestUseProtocolCachePolicy</span> timeoutInterval:<span class="number">2</span>];<span class="comment">//缓存策略：基础策略，超时设置：10秒</span></span><br><span class="line">    <span class="comment">// 连接服务器</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.connection</span> = [[<span class="built_in">NSURLConnection</span> alloc]initWithRequest:request delegate:<span class="keyword">self</span>];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//出现错误</span></span><br><span class="line">-(<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didFailWithError:(<span class="built_in">NSError</span> *)error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"连接出错，判定为没有网"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//接收到反馈信息</span></span><br><span class="line">-(<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didReceiveResponse:(<span class="built_in">NSURLResponse</span> *)response</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"收到百度的回应，判定为有网"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果Reachability也能办到，我很乐意用他的一句代码去代替，也许是我使用错了，使用的效果并不是太好，后续我准备自己写一个封装的小控件，自己去捕捉网络的变化，这样，我就不用再用Reachability了，虽然我现在知道的线索仅仅是：SCNetworkReachability这个类。期待我后续的填坑吧~。如果知道我为什么没有达到相同的效果，而使用了这个笨办法，请你告诉我。</p>
+</li>
+</ul>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/琐事/">琐事</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">评论</h1>
+  <div class="ds-thread" data-title="IOS监听网络的变化状况以及是否已连接可用的网络">
+  </div>
+</section>
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2016 <a href="/">孟庆洪</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.useso.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'mqhong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
