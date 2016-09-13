@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>Swift引用类型和值类型 | 梦梦的咸鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="孟庆洪">
+  
+  
+    <meta name="description" content="2016年09月13日星期二">
+  
+  <meta name="description" content="2016年09月13日星期二">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift引用类型和值类型">
+<meta property="og:url" content="http://mqhong.github.io/2016/09/13/2016-09-13/index.html">
+<meta property="og:site_name" content="梦梦的咸鱼">
+<meta property="og:description" content="2016年09月13日星期二">
+<meta property="og:image" content="http://7xp12w.com1.z0.glb.clouddn.com/Rails_install.jpg">
+<meta property="og:updated_time" content="2016-09-13T16:24:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift引用类型和值类型">
+<meta name="twitter:description" content="2016年09月13日星期二">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">梦梦的咸鱼</a></h1>
+    <p><a href="/">有梦想--孟庆洪</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">目录</a></li>
+      
+        <li><a href="/mystory">简历</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2016/09/13/2016-09-13/">
+  <time datetime="2016-09-13T15:41:13.000Z">
+    2016-09-13
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">Swift引用类型和值类型</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><img src="http://7xp12w.com1.z0.glb.clouddn.com/Rails_install.jpg" class="img-topic"></p>
+<h3 id="2016_u5E7409_u670813_u65E5_u661F_u671F_u4E8C"><a href="#2016_u5E7409_u670813_u65E5_u661F_u671F_u4E8C" class="headerlink" title="2016年09月13日星期二"></a>2016年09月13日星期二</h3><a id="more"></a>
+<ul>
+<li>好久好久没有写博客了，有时候感觉解决了个比较小的事情，不值得去记录，但殊不知，很小的事情，多了也就汇聚成了一条巨大的河流。 特在此，再次重新拾起博客的书写，争取有事没事写一两篇。今天我要写的是，很基础的，Swift的引用类型和值类型。</li>
+<li><p>值类型：结构体(struct)和枚举(value type). 当你把一个结构体变量赋值给另一个，那么这个两个变量将会包含同样的值。你可以将它理解为内容被复制了一遍，但是更精确地描述的话，是被赋值的变量和另外的那个变量包含了同样的值。</p>
+</li>
+<li><p>引用(reference)：它是一种特殊的值：它是一个“指向”某个变量的值。两个引用可能会执行同一个变量，这引入了一种可能性，就是这个变量可能会在程序的两个不同的地方被改变。</p>
+<ul>
+<li>类(class)是引用类型(reference type)。你不能再一个变量里直接持有一个类的实例(我们偶尔可能会把这个实例称作为对象，这个术语经常被滥用)。对于一个类的实例，我们只能在变量里持有对它的引用，然后使用这个引用来访问它。</li>
+<li>引用类型具有同一性(identity)，也就是说，你可以使用 === 来检查两个变量是否确实引用了同一个对象。如果相应类型的 == 运算符被实现了的话，你也可以用 == 来判断两个变量是否相等。两个不同的对象按照定义也是可能相同的。 值类型不存在同一性的问题。比如，你不能对某个变量判定它是否是和另一个变量持有“相同”的数字2.你只能检查它们都包含了2这个值。 === 运算符实际做的是询问“这两个变量是不是持有同样的引用”。 在程序语言的论文里， == 有时候被称为结构相等，而 === 则被称为指针相等或者引用相等。</li>
+</ul>
+</li>
+<li><p>Swift中，类引用不是唯一的引用类型。Swift中依然有指针，比如使用withUnsafeMutablePointer和类似方法得到的就是指针。不过类是使用起来最简单的引用类型，这与它们的引用特性被部分隐藏在语法糖之后是有关系的。你不需要像在其他一些语言中那样显示的处理指针的“解引用”。</p>
+</li>
+<li><p>一个引用变量也可以用 let 来声明，这样做会使引用变为常量。换句话说，这会使变量不能被改变为引用其他东西，不过很重要的是，这并不意味着这个变量所引用的对象本身不能被改变。所以，当用常量的方式来引用变量的时候要格外小心，只有指向关系被常量化了，而对象本身还是可变的。这一点造成的问题是，就算在一个声明变量的地方看到 let，你也不能一下子就知道声明的东西是不是完全不可变的。想要做出正确的判断，你必须先知道这个变量持有的是值类型还是引用类型。</p>
+</li>
+<li><p>这里我们会遇到另一件复杂的事情。虽然 struct 是值类型，但是它的成员可以由其他多种类型组成，也包含那些引用类型。这就是说，当把一个值类型赋值给另一个值类型的时候，对其中的引用类型所做的复制是一个浅复制 (shallow copy)。这种复制会对引用进行复制，但是不会对引用所指向的内容进行复制。</p>
+</li>
+<li><p>我们通过值类型是否执行深复制来对它们分类，判断它们是否具有值语义 (value semantics)。比如，如果一个 Swift 数组的元素只包含结构体的话，那么它就具有值语义。如果一个数组包含有对象，那么实际上数组中的元素是对这些对象的引用。因此当复制包含对象的数组的时候，只有对象的引用被复制了，而这些对象本身是不会被复制的。</p>
+</li>
+</ul>
+<h3 id="Swift__u8FD9_u95E8_u8BED_u8A00__u662F_u770B_u7740_u7B80_u5355_uFF0C_u7528_u7740_u7B80_u5355_uFF0C_u5176_u5B9E_u6211_u6BD4_u8F83_u63A8_u5D07_u7684_u4E00_u53E5_u8BDD_u662F_u81F3_u7E41_u4E3A_u81F3_u7B80_u3002_u8FD8_u6709_u975E_u5E38_u591A_u7684_u4E1C_u897F_u53EF_u4EE5_u53BB_u6DF1_u6316_uFF0C_u6253_u597D_u57FA_u7840_uFF0C_u76D6_u4E0A_u5927_u697C_u3002"><a href="#Swift__u8FD9_u95E8_u8BED_u8A00__u662F_u770B_u7740_u7B80_u5355_uFF0C_u7528_u7740_u7B80_u5355_uFF0C_u5176_u5B9E_u6211_u6BD4_u8F83_u63A8_u5D07_u7684_u4E00_u53E5_u8BDD_u662F_u81F3_u7E41_u4E3A_u81F3_u7B80_u3002_u8FD8_u6709_u975E_u5E38_u591A_u7684_u4E1C_u897F_u53EF_u4EE5_u53BB_u6DF1_u6316_uFF0C_u6253_u597D_u57FA_u7840_uFF0C_u76D6_u4E0A_u5927_u697C_u3002" class="headerlink" title="Swift 这门语言 是看着简单，用着简单，其实我比较推崇的一句话是至繁为至简。还有非常多的东西可以去深挖，打好基础，盖上大楼。"></a>Swift 这门语言 是看着简单，用着简单，其实我比较推崇的一句话是至繁为至简。还有非常多的东西可以去深挖，打好基础，盖上大楼。</h3>
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/琐事/">琐事</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">评论</h1>
+  <div class="ds-thread" data-title="Swift引用类型和值类型">
+  </div>
+</section>
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2016 <a href="/">孟庆洪</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.useso.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'mqhong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
