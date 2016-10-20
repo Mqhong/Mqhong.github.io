@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>IOS之(getter=isOn) | 梦梦的咸鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="孟庆洪">
+  
+  
+    <meta name="description" content="2016年10月20日星期四">
+  
+  <meta name="description" content="2016年10月20日星期四">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOS之(getter=isOn)">
+<meta property="og:url" content="http://mqhong.github.io/2016/10/20/2016-10-20/index.html">
+<meta property="og:site_name" content="梦梦的咸鱼">
+<meta property="og:description" content="2016年10月20日星期四">
+<meta property="og:image" content="http://7xp12w.com1.z0.glb.clouddn.com/getter.jpg">
+<meta property="og:updated_time" content="2016-10-20T15:04:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOS之(getter=isOn)">
+<meta name="twitter:description" content="2016年10月20日星期四">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">梦梦的咸鱼</a></h1>
+    <p><a href="/">有梦想--孟庆洪</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">目录</a></li>
+      
+        <li><a href="/mystory">简历</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2016/10/20/2016-10-20/">
+  <time datetime="2016-10-20T14:49:28.000Z">
+    2016-10-20
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">IOS之(getter=isOn)</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><img src="http://7xp12w.com1.z0.glb.clouddn.com/getter.jpg" class="img-topic"></p>
+<h3 id="2016_u5E7410_u670820_u65E5_u661F_u671F_u56DB"><a href="#2016_u5E7410_u670820_u65E5_u661F_u671F_u56DB" class="headerlink" title="2016年10月20日星期四"></a>2016年10月20日星期四</h3><a id="more"></a>
+<ul>
+<li>在以前开发中，总是看到有人在声明属性的时候的这种写法</li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@<span class="keyword">property</span>(nonatomic,getter=isOn) BOOL <span class="function_start"><span class="keyword">on</span></span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>感觉逼格是挺高的啊，但是为什么这么写喃？</li>
+<li>我在下面给出答复：</li>
+<li>如果这个property是BOOL on,那么Objc默认创建的setter,getter为：</li>
+</ul>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//setter</span><br><span class="line">-(void)<span class="command"><span class="keyword">on</span>:(<span class="title">BOOL</span>)<span class="title">setOn</span>&#123;&#125;</span></span><br><span class="line"><span class="comment"></span><br><span class="line">//getter</span></span><br><span class="line">-(BOOL)<span class="command"><span class="keyword">on</span>&#123;</span></span><br><span class="line">  <span class="constant">return</span> <span class="command"><span class="keyword">on</span>;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>但是你可以手动更改setter和getter方法，就想上面的:getter=xxxOn的话，getter就变为：</li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-(BOOL)xxxOn&#123;</span><br><span class="line"><span class="command">  return</span> <span class="function_start"><span class="keyword">on</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/琐事/">琐事</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">评论</h1>
+  <div class="ds-thread" data-title="IOS之(getter=isOn)">
+  </div>
+</section>
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2016 <a href="/">孟庆洪</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.useso.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'mqhong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
