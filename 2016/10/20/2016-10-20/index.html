@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="梦梦的咸鱼">
 <meta property="og:description" content="2016年10月20日星期四">
 <meta property="og:image" content="http://7xp12w.com1.z0.glb.clouddn.com/getter.jpg">
-<meta property="og:updated_time" content="2016-10-20T15:04:38.000Z">
+<meta property="og:updated_time" content="2016-10-20T15:06:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOS之(getter=isOn)">
 <meta name="twitter:description" content="2016年10月20日星期四">
@@ -78,7 +78,7 @@
 <ul>
 <li>在以前开发中，总是看到有人在声明属性的时候的这种写法</li>
 </ul>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@<span class="keyword">property</span>(nonatomic,getter=isOn) BOOL <span class="function_start"><span class="keyword">on</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">property</span>(nonatomic,getter=isOn) BOOL <span class="function_start"><span class="keyword">on</span></span>;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>感觉逼格是挺高的啊，但是为什么这么写喃？</li>
 <li>我在下面给出答复：</li>
@@ -89,6 +89,9 @@
 <li>但是你可以手动更改setter和getter方法，就想上面的:getter=xxxOn的话，getter就变为：</li>
 </ul>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-(BOOL)xxxOn&#123;</span><br><span class="line"><span class="command">  return</span> <span class="function_start"><span class="keyword">on</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这样大概就知道为什么这么写了，还知道可以怎么用了。挺好。</li>
+</ul>
 
     
   </div>
